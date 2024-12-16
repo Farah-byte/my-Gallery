@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Photos</title> 
+        <style> 
+        body {
+            background-color: #091b29;
+            margin: 0;
+            font-style: normal;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .custom-line {
+            height: 2px; 
+            width: 100%;
+            background-color: #7b92b5;
+            border: none;
+            margin: 0; 
+        }
+
+        .two {
+            color: #7b92b5;
+            font-size: large;
+        }
+
+        #one {
+            color: #7b92b5;
+            font-size: large;
+            padding: 10px;
+            border: 1px solid;
+            font-family: Arial, sans-serif;
+        }
+
+        .three {
+            color: #7b92b5;
+        }
+
+        img {
+            size: 100px;
+            width: 305px; 
+            height: 300px;
+            object-fit: cover;
+            margin: 15px;
+            cursor: pointer;
+        }
+
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .lightbox img {
+            width: auto;
+            height: 80%;
+            border-radius: 10px;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 30px;
+            color: #fff;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .close:hover {
+            color: #7b92b5;
+        }
+    </style>
+</head>
+<body>
+    <script>
+    
+        const userName = prompt("What's your Name?");
+        const welcomeDiv = document.createElement('div');
+        welcomeDiv.id = 'one';
+        welcomeDiv.textContent = userName ? `Welcome, ${userName}!` : "Welcome, Guest!";
+        document.body.appendChild(welcomeDiv);
+
+        
+
+
+
+        function enableLightbox() {
+            const images = document.querySelectorAll('.gallery img');
+            const lightbox = document.createElement('div');
+            lightbox.classList.add('lightbox');
+            document.body.appendChild(lightbox);
+
+            const imgElement = document.createElement('img');
+            lightbox.appendChild(imgElement);
+
+            const closeButton = document.createElement('span');
+            closeButton.classList.add('close');
+            closeButton.textContent = '×';
+            lightbox.appendChild(closeButton);
+
+            images.forEach(img => {
+                img.addEventListener('click', () => {
+                    imgElement.src = img.src;
+                    lightbox.classList.add('active');
+                });
+            });
+
+            closeButton.addEventListener('click', () => {
+                lightbox.classList.remove('active');
+            });
+
+            lightbox.addEventListener('click', (e) => {
+                if (e.target === lightbox) {
+                    lightbox.classList.remove('active');
+                }
+            });
+        }
+
+        
+        document.addEventListener('DOMContentLoaded', enableLightbox);
+    </script>
+
+    <div id="one">
+        <div class="custom-line"></div>
+    </div>
+
+    <div class="two">
+        <center>
+        <h3>Here are Your Saved Photos!</h3>
+        </center>
+    </div>
+
+    <div class="custom-line"></div>
+
+    <div class="photos">
+        <div class="table">
+            <div class="gallery">
+                <center>
+                    <img src="1.jpeg" alt="Image 1">
+            <img src="10.jpeg" alt="Image 2">
+            <img src="11.jpeg" alt="Image 3">
+            <img src="16.jpeg" alt="Image 4">
+            <img src="18.jpeg" alt="Image 5">
+            <img src="15.jpeg" alt="Image 6">
+            <img src="14.jpeg" alt="Image 7">
+            <img src="19.jpeg" alt="Image 8">
+            <img src="28.jpeg" alt="Image 9">
+            <img src="30.jpeg" alt="Image 10">
+            <img src="27.jpg" alt="Image 11">
+            <img src="48.jpeg" alt="Image 12">
+            <img src="8.jpeg" alt="Image 13"> 
+            <img src="50.jpeg" alt="Image 14">
+            <img src="41.jpg" alt="Image 15">
+            <img src="46.jpeg" alt="Image 16">
+            <img src="6.jpeg" alt="Image 17">
+            <img src="47.jpeg" alt="Image 18">
+            <img src="20.jpeg" alt="Image 19">
+            <img src="39.jpeg" alt="Image 20">
+            <img src="24.jpeg" alt="Image 22">
+            <img src="17.jpeg" alt="Image 23">
+            <img src="23.png" alt="Image 24"> 
+            <img src="29.jpeg" alt="Image 25">
+            <img src="34.jpeg" alt="Image 26">
+            <img src="37.jpeg" alt="Image 27">
+            <img src="7.jpg" alt="Image 28"> 
+            <img src="33.jpeg" alt="Image 29">
+            <img src="49.jpeg" alt="Image 30">
+            <img src="36.jpg" alt="Image 31">
+            <img src="3.jpeg" alt="Image 32"> 
+            <img src="4.jpeg" alt="Image 33">
+            <img src="8.jpeg" alt="Image 34">
+            <img src="31.jpeg" alt="Image 35">
+            <img src="26.jpeg" alt="Image 36"> 
+            <img src="9.jpg" alt="Image 37">
+            <img src="13.jpeg" alt="Image 38">
+            <img src="32.jpeg" alt="Image 39">
+            <img src="45.jpeg" alt="Image 40"> 
+            <img src="35.jpeg" alt="Image 41">
+            <img src="25.jpeg" alt="Image 42">
+            <img src="22.jpeg" alt="Image 43">
+            <img src="21.jpeg" alt="Image 44"> 
+            <img src="2.jpeg" alt="Image 45">
+            <img src="42.jpeg" alt="Image 46">
+            <img src="38.jpg" alt="Image 47">
+            <img src="12.jpeg" alt="Image 48"> 
+            <img src="44.jpeg" alt="Image 50">
+                </center>
+            </div>
+        </div>
+    </div>
+
+    <div class="three">
+        <center>
+        <p>Hope you like your gallery</p>
+        </center>
+    </div>
+</body>
+</html>
